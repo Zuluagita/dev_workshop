@@ -30,7 +30,7 @@ class Data:
     def eliminar_duplicados(self, lista):
         """
         Elimina elementos duplicados de una lista sin usar set().
-        Mantiene el orden original de aparición y diferencia entre 1 y True.
+        Mantiene el orden original de aparición.
         """
         resultado = []
         vistos = set()
