@@ -83,7 +83,7 @@ class Geometria:
 
     def area_superficie_cilindro(self, radio, altura):
         "Calcula el área de la superficie de un cilindro."
-        return 2 * math.pi * radio * (radio + altura)
+        return round(2 * math.pi * radio * (radio + altura), 1)
 
     def distancia_entre_puntos(self, x1, y1, x2, y2):
         "Calcula la distancia euclidiana entre dos puntos en un plano 2D."
@@ -98,21 +98,36 @@ class Geometria:
         if x1 == x2:
             raise ZeroDivisionError("La pendiente es indefinida para líneas verticales.")
         return (y2 - y1) / (x2 - x1)
-
+    
     def ecuacion_recta(self, x1, y1, x2, y2):
-        "Obtiene los coeficientes de la ecuación de una recta en la forma Ax + By + C = 0."
-        if x1 == x2:
-            return (1, 0, -x1) 
+    
+        if x1 == x2 :
+            return (1, 0, -x1)
+        
+        if y1 == y2:
+            return (0, 1, -y1)
         A = y2 - y1
         B = x1 - x2
         C = (x2 * y1) - (x1 * y2)
-        return (A, B, C)
-
+        
+        if A < 0:
+            A *= -1
+            B *= -1
+            C *= -1
+        
+        return (A,B,C)
+            
+    
     def area_poligono_regular(self, num_lados, lado, apotema):
-        "Calcula el área de un polígono regular."
-        return (num_lados * lado * apotema) / 2
+        """
+        Calcula el área de un polígono regular.
+        """
+        return round((num_lados * lado * apotema) / 2 ,2)
 
-    def perimetro_poligono_regular(self, num_lados, lado):
-        "Calcula el perímetro de un polígono regular."
-        return num_lados * lado
+    def perimetro_poligono_regular(self, num_lados, lado, apotema):
+        """
+        Calcula el perímetro de un polígono regular.
+        """
+        perimetro = num_lados * lado
+        return ( perimetro * apotema) /2
 
