@@ -5,9 +5,6 @@ class Data:
     """
 
     def invertir_lista(self, lista):
-        """
-        Invierte el orden de los elementos en una lista sin usar reversed() o lista[::-1].
-        """
         izquierda = 0
         derecha = len(lista) - 1
 
@@ -19,33 +16,23 @@ class Data:
         return lista
 
     def buscar_elemento(self, lista, elemento):
-        """
-        Busca un elemento en una lista y devuelve su índice (o -1 si no existe).
-        """
         for i in range(len(lista)):
             if lista[i] == elemento:
                 return i
         return -1  
 
     def eliminar_duplicados(self, lista):
-        """
-        Elimina elementos duplicados de una lista sin usar set().
-        Mantiene el orden original de aparición.
-        """
         resultado = []
         vistos = set()
 
         for elemento in lista:
             if (elemento, type(elemento)) not in vistos:
                 resultado.append(elemento)
-                vistos.add((elemento, type(elemento)))  # Se almacena el tipo para diferenciarlos
+                vistos.add((elemento, type(elemento))) 
 
         return resultado
 
     def merge_ordenado(self, lista1, lista2):
-        """
-        Combina dos listas ordenadas en una sola lista ordenada.
-        """
         i, j = 0, 0
         resultado = []
 
@@ -63,36 +50,24 @@ class Data:
         return resultado
 
     def rotar_lista(self, lista, k):
-        """
-        Rota los elementos de una lista k posiciones a la derecha.
-        """
         if not lista:
             return lista
         k = k % len(lista)  
         return lista[-k:] + lista[:-k]
 
     def encuentra_numero_faltante(self, lista):
-        """
-        Encuentra el número faltante en una lista de enteros del 1 al n.
-        """
         n = len(lista) + 1  
         suma_total = n * (n + 1) // 2  
         suma_lista = sum(lista)  
         return suma_total - suma_lista
 
     def es_subconjunto(self, conjunto1, conjunto2):
-        """
-        Verifica si conjunto1 es subconjunto de conjunto2 sin usar set().
-        """
         for elemento in conjunto1:
             if elemento not in conjunto2:
                 return False
         return True
 
     def implementar_pila(self):
-        """
-        Implementa una estructura de datos tipo pila (stack) usando listas.
-        """
         pila = []
 
         def push(valor):
@@ -115,9 +90,6 @@ class Data:
         }
 
     def implementar_cola(self):
-        """
-        Implementa una estructura de datos tipo cola (queue) usando listas.
-        """
         cola = []
 
         def enqueue(valor):
@@ -140,9 +112,6 @@ class Data:
         }
 
     def matriz_transpuesta(self, matriz):
-        """
-        Calcula la transpuesta de una matriz.
-        """
         if not matriz:
             return []
 
